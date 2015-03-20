@@ -1,0 +1,271 @@
+﻿[{
+    "id": 1,
+    "name": "Bain Colony",
+    "system_id": 18370,
+    "has_blackmarket": null,
+    "max_landing_pad_size": null,
+    "distance_to_star": null,
+    "listings": [
+        {
+            "id": 1,
+            "station_id": 1,
+            "commodity_id": 5,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 378,
+            "demand": 1137,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 2,
+            "station_id": 1,
+            "commodity_id": 6,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 6882,
+            "demand": 38,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 3,
+            "station_id": 1,
+            "commodity_id": 7,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 534,
+            "demand": 318,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 4,
+            "station_id": 1,
+            "commodity_id": 14,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 1451,
+            "demand": 139,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 5,
+            "station_id": 1,
+            "commodity_id": 15,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 1431,
+            "demand": 375,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 6,
+            "station_id": 1,
+            "commodity_id": 16,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 472,
+            "demand": 528,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 7,
+            "station_id": 1,
+            "commodity_id": 17,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 176,
+            "demand": 18,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 8,
+            "station_id": 1,
+            "commodity_id": 18,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 421,
+            "demand": 1626,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 9,
+            "station_id": 1,
+            "commodity_id": 19,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 257,
+            "demand": 923,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 10,
+            "station_id": 1,
+            "commodity_id": 20,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 292,
+            "demand": 48,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 11,
+            "station_id": 1,
+            "commodity_id": 21,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 1638,
+            "demand": 165,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 12,
+            "station_id": 1,
+            "commodity_id": 8,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 281,
+            "demand": 7114,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 13,
+            "station_id": 1,
+            "commodity_id": 9,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 762,
+            "demand": 950,
+            "collected_at": 1420167760
+        },
+        {
+            "id": 14,
+            "station_id": 1,
+            "commodity_id": 12,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 306,
+            "demand": 7,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 15,
+            "station_id": 1,
+            "commodity_id": 30,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 534,
+            "demand": 127,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 16,
+            "station_id": 1,
+            "commodity_id": 31,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 304,
+            "demand": 225,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 17,
+            "station_id": 1,
+            "commodity_id": 33,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 320,
+            "demand": 341,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 18,
+            "station_id": 1,
+            "commodity_id": 36,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 6882,
+            "demand": 5,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 19,
+            "station_id": 1,
+            "commodity_id": 42,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 9281,
+            "demand": 1264,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 20,
+            "station_id": 1,
+            "commodity_id": 45,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 13678,
+            "demand": 2435,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 21,
+            "station_id": 1,
+            "commodity_id": 46,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 19943,
+            "demand": 3039,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 22,
+            "station_id": 1,
+            "commodity_id": 47,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 4765,
+            "demand": 2115,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 23,
+            "station_id": 1,
+            "commodity_id": 52,
+            "supply": 0,
+            "buy_price": 2124,
+            "sell_price": 2122,
+            "demand": 0,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 24,
+            "station_id": 1,
+            "commodity_id": 75,
+            "supply": 736,
+            "buy_price": 20,
+            "sell_price": 15,
+            "demand": 0,
+            "collected_at": 1420167769
+        },
+        {
+            "id": 25,
+            "station_id": 1,
+            "commodity_id": 78,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 1789,
+            "demand": 135,
+            "collected_at": 1420167775
+        },
+        {
+            "id": 26,
+            "station_id": 1,
+            "commodity_id": 80,
+            "supply": 0,
+            "buy_price": 0,
+            "sell_price": 2149,
+            "demand": 88,
+            "collected_at": 1420167775
+        }
+    ]
+}
+]

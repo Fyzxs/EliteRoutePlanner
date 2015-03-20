@@ -1,0 +1,344 @@
+﻿{
+"systems": [
+    {
+        "name": "Teaka",
+        "stations": [
+            {
+                "name": "Gregory City",
+                "distance": 12345
+            },
+            {
+                "name": "Land Dock",
+                "distance": 12345
+            },
+            {
+                "name": "Chaudhary Dock",
+                "distance": 12345
+            },
+            {
+                "name": "Chapman Orbital",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 5.63
+            },
+            {
+                "name": "Batz",
+                "distance": 11.9
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 5.52
+            },
+            {
+                "name": "Svanticani",
+                "distance": 7.06
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 10.10
+            },
+            {
+                "name": "Undines",
+                "distance": 11.7
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 16.30
+            }
+        ]
+    },
+    {
+        "name": "Evejitaka",
+        "stations": [
+            {
+                "name": "Love Ring",
+                "distance": 12345
+            },
+            {
+                "name": "Henize Station",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Teaka",
+                "distance": 5.63
+            },
+            {
+                "name": "Batz",
+                "distance": 17.5
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 10.10
+            },
+            {
+                "name": "Svanticani",
+                "distance": 12.30
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 4.76
+            },
+            {
+                "name": "Undines",
+                "distance": 11.20
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 11.1
+            }
+        ]
+    },
+    {
+        "name": "Batz",
+        "stations": [
+            {
+                "name": "Bosch City",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 17.5
+            },
+            {
+                "name": "Teaka",
+                "distance": 11.9
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 8.75
+            },
+            {
+                "name": "Svanticani",
+                "distance": 7.14
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 999
+            },
+            {
+                "name": "Undines",
+                "distance": 999
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 999
+            }
+        ]
+    },
+    {
+        "name": "Nisgayo",
+        "stations": [
+            {
+                "name": "Bosch City",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 10.10
+            },
+            {
+                "name": "Batz",
+                "distance": 17.5
+            },
+            {
+                "name": "Teaka",
+                "distance": 5.52
+            },
+            {
+                "name": "Svanticani",
+                "distance": 7.74
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 13.7
+            },
+            {
+                "name": "Undines",
+                "distance": 16.7
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 999
+            }
+        ]
+    },
+    {
+        "name": "Svanticani",
+        "stations": [
+            {
+                "name": "Sargent Terminal",
+                "distance": 12345
+            },
+            {
+                "name": "Carpini Survey",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 12.3
+            },
+            {
+                "name": "Batz",
+                "distance": 7.14
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 7.74
+            },
+            {
+                "name": "Teaka",
+                "distance": 7.06
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 17
+            },
+            {
+                "name": "Undines",
+                "distance": 12.6
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 14.10
+            }
+        ]
+    },
+    {
+        "name": "Undines",
+        "stations": [
+            {
+                "name": "Cayley Freeport",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 4.76
+            },
+            {
+                "name": "Batz",
+                "distance": 999
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 16.7
+            },
+            {
+                "name": "Svanticani",
+                "distance": 12.6
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 14.4
+            },
+            {
+                "name": "Teaka",
+                "distance": 11.7
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 14.10
+            }
+        ]
+    },
+    {
+        "name": "Cenu Kichs",
+        "stations": [
+            {
+                "name": "Fuchs Landing",
+                "distance": 12345
+            },
+            {
+                "name": "Vries Prospect",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 4.76
+            },
+            {
+                "name": "Batz",
+                "distance": 999
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 13.7
+            },
+            {
+                "name": "Svanticani",
+                "distance": 17
+            },
+            {
+                "name": "Teaka",
+                "distance": 10.10
+            },
+            {
+                "name": "Undines",
+                "distance": 14.4
+            },
+            {
+                "name": "LTT 8419",
+                "distance": 9.04
+            }
+        ]
+    },
+    {
+        "name": "LTT 8419",
+        "stations": [
+            {
+                "name": "Aguirre Orbital",
+                "distance": 12345
+            },
+            {
+                "name": "Stableford Settlement",
+                "distance": 12345
+            }
+        ],
+        "systems": [
+            {
+                "name": "Evejitaka",
+                "distance": 11.10
+            },
+            {
+                "name": "Batz",
+                "distance": 999
+            },
+            {
+                "name": "Nisgayo",
+                "distance": 999
+            },
+            {
+                "name": "Svanticani",
+                "distance": 14.10
+            },
+            {
+                "name": "Cenu Kichs",
+                "distance": 9.04
+            },
+            {
+                "name": "Undines",
+                "distance": 14.10
+            },
+            {
+                "name": "Teaka",
+                "distance": 16.30
+            }
+        ]
+    }
+]
+}

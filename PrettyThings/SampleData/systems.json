@@ -1,0 +1,99 @@
+﻿[
+    {
+        "id": 1,
+        "name": "1 G. Caeli",
+        "x": 80.90625,
+        "y": -83.53125,
+        "z": -30.8125,
+        "stations": [
+            {
+                "id": 5611,
+                "name": "Smoot Gateway",
+                "system_id": 1,
+                "has_blackmarket": 0,
+                "max_landing_pad_size": 30,
+                "distance_to_star": 4747
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "1 Geminorum",
+        "x": 19.78125,
+        "y": 3.5625,
+        "z": -153.8125,
+        "stations": [
+
+        ]
+    },
+    {
+        "id": 3,
+        "name": "1 Hydrae",
+        "x": 60.90625,
+        "y": 28.53125,
+        "z": -54.90625,
+        "stations": [
+
+        ]
+    },
+    {
+        "id": 4,
+        "name": "1 i Centauri",
+        "x": 38.46875,
+        "y": 29.78125,
+        "z": 40.46875,
+        "stations": [
+            {
+                "id": 5612,
+                "name": "Ampere Dock",
+                "system_id": 4,
+                "has_blackmarket": 1,
+                "max_landing_pad_size": 30,
+                "distance_to_star": 1498
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "1 Kappa Cygni",
+        "x": -117.75,
+        "y": 37.78125,
+        "z": 11.1875,
+        "stations": [
+            {
+                "id": 5341,
+                "name": "Hauck Enterprise",
+                "system_id": 5,
+                "has_blackmarket": null,
+                "max_landing_pad_size": 20,
+                "distance_to_star": null
+            },
+            {
+                "id": 3789,
+                "name": "Kinsey Ring",
+                "system_id": 5,
+                "has_blackmarket": null,
+                "max_landing_pad_size": 20,
+                "distance_to_star": null
+            },
+            {
+                "id": 5342,
+                "name": "Wohler Port",
+                "system_id": 5,
+                "has_blackmarket": null,
+                "max_landing_pad_size": 30,
+                "distance_to_star": null
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "10 Arietis",
+        "x": -79.09375,
+        "y": -88.21875,
+        "z": -105.875,
+        "stations": [
+
+        ]
+    }
+]
