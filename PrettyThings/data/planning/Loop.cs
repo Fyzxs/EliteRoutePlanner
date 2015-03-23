@@ -12,6 +12,7 @@ namespace PrettyThings.data.planning
 
         public enum AddHopResponse
         {
+            TooLong,
             Invalid,
             Exists,
             StationExists,
@@ -20,8 +21,8 @@ namespace PrettyThings.data.planning
             LoopComplete
         }
 
-        public SortedSet<StationToStationProfit> Hops { get; private set; }
-        //public List<StationToStationProfit> Hops { get; private set; }
+        //public SortedSet<StationToStationProfit> Hops { get; private set; }
+        public List<StationToStationProfit> Hops { get; private set; }
 
         public override String ToString()
         {
@@ -49,8 +50,8 @@ namespace PrettyThings.data.planning
         
         public Loop()
         {
-            //Hops = new List<StationToStationProfit>();
-            Hops = new SortedSet<StationToStationProfit>();
+            Hops = new List<StationToStationProfit>();
+            //Hops = new SortedSet<StationToStationProfit>();
         }
 
         public void RemoveLast()
@@ -64,8 +65,13 @@ namespace PrettyThings.data.planning
 
         public AddHopResponse AddHop(StationToStationProfit hop, List<Loop> localLoops )
         {
+            
             if (Hops.Count > 0)
             {
+                if (localLoops.Count > 10)
+                {
+                    return AddHopResponse.TooLong;
+                }
                 if (Hops.Contains(hop))
                 {
                     return AddHopResponse.Exists;

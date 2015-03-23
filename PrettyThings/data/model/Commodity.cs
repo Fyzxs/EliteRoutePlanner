@@ -18,8 +18,9 @@ namespace PrettyThings.data.model
         public static void InsertOrReplace(Commodity commodity)
         {
             if (commodity.Id <= 0){ return; }
-            SystemDatabase.Connection.InsertOrReplace(commodity);
-            SystemDatabase.Connection.InsertOrReplace(commodity.Category);
+            var result1 = SystemDatabase.Connection.InsertOrReplace(commodity);
+            var result2 = SystemDatabase.Connection.InsertOrReplace(commodity._category);
+            var result3 = result1 + result2;
         }
 
         public override void InsertOrReplace()
@@ -63,7 +64,9 @@ namespace PrettyThings.data.model
         [JsonProperty(PropertyName = "category_id")]
         public long CommodityCategoryId { get; set; }
 
+        [JsonProperty(PropertyName = "category")]
         private CommodityCategory _category = null;
+
         [Ignore] 
         public CommodityCategory Category
         {

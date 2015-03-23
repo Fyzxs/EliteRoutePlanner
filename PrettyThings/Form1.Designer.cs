@@ -32,6 +32,7 @@ namespace PrettyThings
         {
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.mniMainFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mniMainImport = new System.Windows.Forms.ToolStripMenuItem();
             this.mniMainImportEddb = new System.Windows.Forms.ToolStripMenuItem();
             this.mniMainImportEddbCommodities = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,7 @@ namespace PrettyThings
             this.mniMainDebugShowStationCount = new System.Windows.Forms.ToolStripMenuItem();
             this.mniMainDebugUseSampleData = new System.Windows.Forms.ToolStripMenuItem();
             this.mniMainDebugShowPathCount = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelLoopingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.stsMain = new System.Windows.Forms.StatusStrip();
             this.stsMainStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,7 +57,6 @@ namespace PrettyThings
             this.lblSearchDistanceLightYears = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cancelLoopingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.stsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDistance)).BeginInit();
@@ -75,9 +76,18 @@ namespace PrettyThings
             // 
             // mniMainFile
             // 
+            this.mniMainFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.mniMainFile.Name = "mniMainFile";
             this.mniMainFile.Size = new System.Drawing.Size(37, 20);
             this.mniMainFile.Text = "File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // mniMainImport
             // 
@@ -167,6 +177,13 @@ namespace PrettyThings
             this.mniMainDebugShowPathCount.Text = "Show Path Count";
             this.mniMainDebugShowPathCount.Click += new System.EventHandler(this.mniMainDebugShowPathCount_Click);
             // 
+            // cancelLoopingToolStripMenuItem
+            // 
+            this.cancelLoopingToolStripMenuItem.Name = "cancelLoopingToolStripMenuItem";
+            this.cancelLoopingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cancelLoopingToolStripMenuItem.Text = "Cancel Looping";
+            this.cancelLoopingToolStripMenuItem.Click += new System.EventHandler(this.cancelLoopingToolStripMenuItem_Click);
+            // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -217,6 +234,7 @@ namespace PrettyThings
             this.txtStartingSystem.Name = "txtStartingSystem";
             this.txtStartingSystem.Size = new System.Drawing.Size(100, 20);
             this.txtStartingSystem.TabIndex = 4;
+            this.txtStartingSystem.Text = "Teaka";
             // 
             // btnGenPath
             // 
@@ -236,6 +254,11 @@ namespace PrettyThings
             this.numDistance.Size = new System.Drawing.Size(56, 20);
             this.numDistance.TabIndex = 6;
             this.numDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numDistance.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // lblDistance
             // 
@@ -273,13 +296,6 @@ namespace PrettyThings
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox2.Size = new System.Drawing.Size(843, 91);
             this.textBox2.TabIndex = 10;
-            // 
-            // cancelLoopingToolStripMenuItem
-            // 
-            this.cancelLoopingToolStripMenuItem.Name = "cancelLoopingToolStripMenuItem";
-            this.cancelLoopingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cancelLoopingToolStripMenuItem.Text = "Cancel Looping";
-            this.cancelLoopingToolStripMenuItem.Click += new System.EventHandler(this.cancelLoopingToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -337,6 +353,7 @@ namespace PrettyThings
         internal System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ToolStripMenuItem mniMainImportEddbInterwebs;
         private System.Windows.Forms.ToolStripMenuItem cancelLoopingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

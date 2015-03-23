@@ -107,9 +107,6 @@
     <None Include="FullData\stations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="FullData\stations_lite.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="FullData\systems.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -123,15 +120,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SampleData\commodities.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="SampleData\stations.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="SampleData\systems.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="SampleData\commodities.json" />
+    <None Include="SampleData\stations.json" />
+    <None Include="SampleData\systems.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

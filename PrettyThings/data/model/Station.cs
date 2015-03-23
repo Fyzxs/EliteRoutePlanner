@@ -10,11 +10,90 @@ using Newtonsoft.Json;
 using PrettyThings.data.model;
 using PrettyThings.data.planning;
 using SQLite;
+using Newtonsoft.Json.Linq;
 
 namespace PrettyThings.data.model
 {
     public class Station : BaseModelDal<Station>
     {
+
+        public static new Station[] ParseFromJsonPath(string jsonPath)
+        {
+            var stations = new List<Station>();
+            var textReader = new StreamReader(jsonPath);
+
+            using (var jsonReader = new JsonTextReader(textReader))
+            {
+                jsonReader.Read();
+                try
+                {
+                    var sb = new StringBuilder();
+                    var ctr = 0;
+                    var haveStation = false;
+                    while (jsonReader.Read())
+                    {
+                        switch (jsonReader.TokenType)
+                        {
+                            case JsonToken.StartObject:
+                                ctr++;
+                                sb.Append("{");
+                                break;
+                            case JsonToken.EndObject:
+                                haveStation = --ctr == 0;
+                                sb.Append("}");
+                                if (!haveStation)
+                                {
+                                    sb.Append(",");
+                                }
+                                break;
+                            case JsonToken.StartArray:
+                                sb.Append("[");
+                                break;
+                            case JsonToken.EndArray:
+                                sb.Append("],");
+                                break;
+                            case JsonToken.PropertyName:
+                                sb.Append("\"" + jsonReader.Value.ToString() + "\":");
+                                break;
+                            case  JsonToken.String:
+                                sb.Append("\"" + jsonReader.Value.ToString() + "\",");
+                                break;
+                            case JsonToken.Integer:
+                            case JsonToken.Float:
+                                sb.Append(jsonReader.Value.ToString() + ",");
+                                break;
+                            case JsonToken.Null:
+                                sb.Append("null,");
+                                break;
+                            default:
+                                Console.WriteLine("vroom");
+                            
+                            break;
+                        }
+                        if (haveStation)
+                        {
+                            try
+                            {
+                                var station = JsonConvert.DeserializeObject<Station>(sb.ToString());
+                                stations.Add(station);
+                                haveStation = false;
+                                sb.Clear();
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            return stations.ToArray();
+        }
         public static void Init(SQLiteConnection conn)
         {
             conn.CreateTable<Station>();
@@ -23,9 +102,10 @@ namespace PrettyThings.data.model
         public static void InsertOrReplace(Station station)
         {
             if (station.Id <= 0) { return; }
-            SystemDatabase.Connection.InsertOrReplace(station);
             if (ProcessListing(station))
             {
+                var result = SystemDatabase.Connection.InsertOrReplace(station);
+                result *= result;
                 foreach (var listing in station.Listings)
                 {
                     //Console.WriteLine(listing);
@@ -36,12 +116,19 @@ namespace PrettyThings.data.model
 
         public static bool ProcessListing(Station station)
         {
-            var x = -20.65625;
-            var y = -62.28125;
-            var z = 51.875;
             var maxDistance = 40;
+            var x = -21;
+            var y = -63;
+            var z = 52;
+            var xAdded = x + maxDistance;
+            var xSubed = x - maxDistance;
+            var yAdded = y + maxDistance;
+            var ySubed = y - maxDistance;
+            var zAdded = z + maxDistance;
+            var zSubed = z - maxDistance;
 
             var sys = station.ParentSystem;
+            
             return Math.Sqrt(
                 Math.Pow(sys.x - x, 2) +
                 Math.Pow(sys.y - y, 2) +
@@ -82,7 +169,7 @@ namespace PrettyThings.data.model
         public long ParentSystemId { get; set; }
 
         [JsonProperty(PropertyName = "listings")]
-        private StationListing[] _listings;
+        public StationListing[] _listings;
         [Ignore]
         public StationListing[] Listings
         {

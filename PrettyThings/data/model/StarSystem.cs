@@ -20,12 +20,10 @@ namespace PrettyThings.data.model
 
         public static void InsertOrReplace(StarSystem system)
         {
+            
             if (system.Id <= 0) { return; }
-            SystemDatabase.Connection.InsertOrReplace(system);
-            foreach (var station in system.Stations)
-            {
-                station.InsertOrReplace();
-            }
+            var result = SystemDatabase.Connection.InsertOrReplace(system);
+            result *= result;
         }
 
         public static bool Has(string starSystemName)

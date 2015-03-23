@@ -44,7 +44,8 @@ namespace PrettyThings.data.model
                 Console.WriteLine("Unable to process {0}", listing);
                 return;
             }*/
-            SystemDatabase.Connection.InsertOrReplace(listing);
+            var result = SystemDatabase.Connection.InsertOrReplace(listing);
+            result *= result;
             
         }
 

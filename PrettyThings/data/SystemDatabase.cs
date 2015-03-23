@@ -26,6 +26,7 @@ namespace PrettyThings.data
         {
             MiniInitialization(FileConnection);
             CopyDataToMemory();
+            
         }
 
         private static void MiniInitialization(SQLiteConnection connection)
@@ -43,6 +44,20 @@ namespace PrettyThings.data
             Console.WriteLine("[BackUp=" + backup + "] [extdErrorCode=" + SQLite3.ExtendedErrCode(MemoryConnection.Handle) + "]");
             SQLite3.BackupStep(backup, -1);
             SQLite3.BackupFinish(backup);
+        }
+        public static void CopyDataToDisk()
+        {
+            IntPtr backup = SQLite3.BackupInit(FileConnection.Handle, "main", MemoryConnection.Handle, "main");
+            Console.WriteLine("[BackUp=" + backup + "] [extdErrorCode=" + SQLite3.ExtendedErrCode(MemoryConnection.Handle) + "]");
+            SQLite3.BackupStep(backup, -1);
+            SQLite3.BackupFinish(backup);
+        }
+
+        public static void Close()
+        {
+            CopyDataToDisk();
+            MemoryConnection.Close();
+            FileConnection.Close();
         }
     }
 }

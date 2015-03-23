@@ -4,7 +4,7 @@ using PrettyThings.data.model;
 
 namespace PrettyThings.data.planning
 {
-    public class StationToStationProfit : IComparable
+    public class StationToStationProfit : IComparable<StationToStationProfit>
     {
         public Station SellAtStation { get; private set; }
         public StationListing SellAtListing { get; private set; }
@@ -31,7 +31,7 @@ namespace PrettyThings.data.planning
                     return SellAtListing.SellPrice - BuyFromListing.BuyPrice;
                 }
             }
-            catch (Exception ignored)
+            catch (Exception)
             {
                 /* no op */
             }
@@ -64,18 +64,28 @@ namespace PrettyThings.data.planning
         }
 
 
-        public int CompareTo(object obj)
+        public int CompareTo(StationToStationProfit obj)
         {
-            var rhs = obj as StationToStationProfit;
-            if (rhs == null)
+            if (obj == null)
             {
                 return 1;
             }
 
-            var result = 0;
-            if ((result = ProfitAmount().CompareTo(rhs.ProfitAmount())) == 0)
+            var isMatch = this.BuyFromStation.Id == obj.BuyFromStation.Id &&
+                this.BuyFromListing.CommodityId == obj.BuyFromListing.CommodityId &&
+                this.SellAtStation.Id == obj.SellAtStation.Id;
+                
+            if(isMatch)
             {
-                result = BuyFromStation.Id.CompareTo(rhs.BuyFromStation.Id);
+                return 0;
+            }
+
+            var result = 0;
+            if ((result = ProfitAmount().CompareTo(obj.ProfitAmount())) == 0)
+            {
+                var shortCircuit = ((result = BuyFromStation.Id.CompareTo(obj.BuyFromStation.Id)) != 0) ||
+                                   ((result = SellAtStation.Id.CompareTo(obj.SellAtStation.Id)) != 0) ||
+                                   ((result = BuyFromListing.CommodityId.CompareTo(obj.BuyFromListing.CommodityId)) != 0);
             }
 
             return result;

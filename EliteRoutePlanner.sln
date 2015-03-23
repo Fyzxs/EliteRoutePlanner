@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteRoutePlanner", "EliteRoutePlanner\EliteRoutePlanner.csproj", "{8E3D4A77-7249-491C-97C9-A401AF7F0EFB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyThings", "PrettyThings\PrettyThings.csproj", "{E6665271-9EFB-437E-ACE8-E045238EF6ED}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8E3D4A77-7249-491C-97C9-A401AF7F0EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E3D4A77-7249-491C-97C9-A401AF7F0EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E3D4A77-7249-491C-97C9-A401AF7F0EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E3D4A77-7249-491C-97C9-A401AF7F0EFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E6665271-9EFB-437E-ACE8-E045238EF6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E6665271-9EFB-437E-ACE8-E045238EF6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6665271-9EFB-437E-ACE8-E045238EF6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU

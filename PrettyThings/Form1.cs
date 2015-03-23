@@ -98,5 +98,11 @@ namespace PrettyThings
             LoopGeneration.Instance._loopWorker.CancelAsync();
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SystemDatabase.Close();
+            System.Windows.Forms.Application.Exit();
+        }
+
     }
 }
