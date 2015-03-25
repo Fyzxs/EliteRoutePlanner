@@ -116,16 +116,12 @@ namespace PrettyThings.data.model
 
         public static bool ProcessListing(Station station)
         {
+
+            return true;
             var maxDistance = 40;
             var x = -21;
             var y = -63;
             var z = 52;
-            var xAdded = x + maxDistance;
-            var xSubed = x - maxDistance;
-            var yAdded = y + maxDistance;
-            var ySubed = y - maxDistance;
-            var zAdded = z + maxDistance;
-            var zSubed = z - maxDistance;
 
             var sys = station.ParentSystem;
             
@@ -211,7 +207,7 @@ namespace PrettyThings.data.model
 
         public StationListing GetSellable(long commodityId)
         {
-            return Listings.FirstOrDefault(x => x.SellPrice > 0 && x.CommodityId == commodityId);
+            return Listings.FirstOrDefault(x => x.SellPrice > 0 && x.CommodityId == commodityId && x.Supply > 0);
         }
 
         public StationToStationProfit GetMostProfitableToSellAt(Station sellAtStation)

@@ -225,7 +225,7 @@ namespace PrettyThings.Menu
         {
             var length = collection.Count;
             var count = 1;
-            foreach(var item in collection)//Parallel.ForEach(collection, item =>
+            foreach(var item in collection)
             {
                 if (worker.CancellationPending)
                 {
@@ -237,7 +237,7 @@ namespace PrettyThings.Menu
                 worker.ReportProgress(((count * 100) / length), new ImportUserState() { Processed = count, Label = String.Format("{2}: {0} of {1}", count++, length, item.GetType().Name) });
 
             }
-            ;//);
+            
         }
 
         public void mniMainImportEddb_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace PrettyThings.data.model
             }*/
             var result = SystemDatabase.Connection.InsertOrReplace(listing);
             result *= result;
-            
+
         }
 
 /*
@@ -55,6 +55,7 @@ namespace PrettyThings.data.model
 */
 
         private string _key = null;
+
         [PrimaryKey]
         public string ItemKey
         {
@@ -76,6 +77,9 @@ namespace PrettyThings.data.model
 
         [JsonProperty(PropertyName = "demand")]
         public int Demand { get; set; }
+
+        [JsonProperty(PropertyName = "supply")]
+        public int Supply { get; set; }
 
         private Commodity _commodity;
 
