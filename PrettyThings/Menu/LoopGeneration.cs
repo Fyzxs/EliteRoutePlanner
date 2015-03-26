@@ -58,7 +58,7 @@ namespace PrettyThings.Menu
             if (progressChangedEventArgs.UserState is LoopWorkerProgressArgs)
             {
                 var args = (LoopWorkerProgressArgs)progressChangedEventArgs.UserState;
-                if (args.doTextBox)
+                if (args.DoTextBox)
                 {
                     active.textBox1.Text += "\r\n" + args.Text;
                 }
@@ -69,36 +69,22 @@ namespace PrettyThings.Menu
             }
            
         }
-        private class Item
-        {
-            public Loop.AddHopResponse Response;
-            public int Value;
-            public Item(Loop.AddHopResponse response)
-            {
-                Response = response;
-            }
-            public override string ToString()
-            {
-                return Response.ToString() + " :: " + Value;
-            }
-        }
 
         private class LoopWorkerArgs
         {
             public string SystemName;
             public double Distance;
+            public decimal CargoSize;
+            public decimal Credits;
+
         }
 
         private class LoopWorkerProgressArgs
         {
-            public bool doTextBox;
+            public bool DoTextBox;
             public string Text;
         }
 
-        private class LoopWorkerCounterArgs
-        {
-            public Loop.AddHopResponse Response;
-        }
 
         private void LoopWorkerOnDoWork(object sender, DoWorkEventArgs doWorkEventArgs)
         {
@@ -112,7 +98,7 @@ namespace PrettyThings.Menu
 
             worker.ReportProgress(0, new LoopWorkerProgressArgs()
             {
-                doTextBox =  true,
+                DoTextBox =  true,
                 Text =
                     string.Format("[{2}] Starting Path Finding for '{0}' in a '{1} ly' bubble", args.SystemName, args.Distance, DateTime.Now.ToLongTimeString())
             });
@@ -121,17 +107,19 @@ namespace PrettyThings.Menu
             if (centralSystem == null)
             {
                 worker.ReportProgress(0, new LoopWorkerProgressArgs()
-                {doTextBox =  true,
+                {
+                    DoTextBox =  true,
                     Text = string.Format("Central System {0} Not Found", args.SystemName)
                 });
                 doWorkEventArgs.Cancel = true;
                 return;
             }
-            var stationCollection = centralSystem.GetProfitableStationsWithin(args.Distance);
+            var stationCollection = centralSystem.GetProfitableStationsWithin(args.Distance, args.CargoSize, args.Credits);
             stationCollection.Sort();
             stationCollection.Reverse();
             worker.ReportProgress(0, new LoopWorkerProgressArgs()
-            {doTextBox =  true,
+            {
+                DoTextBox =  true,
                 Text = string.Format("Found {0} stations with profitable hops", stationCollection.Count)
             });
 
@@ -157,7 +145,7 @@ namespace PrettyThings.Menu
                     
                     worker.ReportProgress(0, new LoopWorkerProgressArgs()
                     {
-                        doTextBox =  false,
+                        DoTextBox =  false,
                         Text = string.Format("Found {0,7} paths running thread [{1,3}] [sucess={2,5}] [{3,2}]", localLoops.Count, Thread.CurrentThread.ManagedThreadId, success, i)
                     });
                     if (worker.CancellationPending)
@@ -184,7 +172,7 @@ namespace PrettyThings.Menu
 
             worker.ReportProgress(0, new LoopWorkerProgressArgs()
             {
-                doTextBox = true,
+                DoTextBox = true,
                 Text = string.Format("Found {0} paths", allLoops.Count)
             });
 
@@ -194,6 +182,14 @@ namespace PrettyThings.Menu
                 sortedFile.WriteLine(loop.ToTsv());
             }
 
+            for (var i = 0; i < 5 && i < allLoops.Count; i++)
+            {
+                worker.ReportProgress(0, new LoopWorkerProgressArgs()
+                {
+                    DoTextBox = true,
+                    Text = string.Format("{0}", allLoops[i])
+                });
+            }
             sortedFile.Close();
 
         }
@@ -218,7 +214,7 @@ namespace PrettyThings.Menu
 #if DEBUG
                          worker.ReportProgress(0, new LoopWorkerProgressArgs()
                         {
-                            doTextBox =  true,
+                            DoTextBox =  true,
                             Text = string.Format("Found path running thread [{0,3}] [{1}]",Thread.CurrentThread.ManagedThreadId, loop.ToString())
                         });
 #endif
@@ -246,8 +242,11 @@ namespace PrettyThings.Menu
             
             active.stsMainProgress.Visible = false;
             active.stsMainStatus.Visible = true;
-
-            _loopWorker.RunWorkerAsync(new LoopWorkerArgs(){Distance = Convert.ToDouble(active.numDistance.Value), SystemName = active.txtStartingSystem.Text});
+            _loopWorker.RunWorkerAsync(new LoopWorkerArgs() { Distance = Convert.ToDouble(active.numDistance.Value), 
+                SystemName = ((ComboBox)active.tabControls.GetControl(0).Controls.Find("cboSystemSelector", false)[0]).Text,
+                CargoSize = ((NumericUpDown)active.tabControls.GetControl(0).Controls.Find("numCargo", false)[0]).Value,
+                Credits = ((NumericUpDown)active.tabControls.GetControl(0).Controls.Find("numCredits", false)[0]).Value
+            });
 
             return true;
         }

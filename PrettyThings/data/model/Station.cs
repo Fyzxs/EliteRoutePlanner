@@ -118,17 +118,6 @@ namespace PrettyThings.data.model
         {
 
             return true;
-            var maxDistance = 40;
-            var x = -21;
-            var y = -63;
-            var z = 52;
-
-            var sys = station.ParentSystem;
-            
-            return Math.Sqrt(
-                Math.Pow(sys.x - x, 2) +
-                Math.Pow(sys.y - y, 2) +
-                Math.Pow(sys.z - z, 2)) <= maxDistance;
 
         }
 
@@ -207,10 +196,10 @@ namespace PrettyThings.data.model
 
         public StationListing GetSellable(long commodityId)
         {
-            return Listings.FirstOrDefault(x => x.SellPrice > 0 && x.CommodityId == commodityId && x.Supply > 0);
+            return Listings.FirstOrDefault(x => x.SellPrice > 0 && x.CommodityId == commodityId);
         }
 
-        public StationToStationProfit GetMostProfitableToSellAt(Station sellAtStation)
+        public StationToStationProfit GetMostProfitableToSellAt(Station sellAtStation, decimal cargoSize, decimal credits)
         {
             StationToStationProfit profit = null;
             foreach (var buyListing in GetPurchaseable())
@@ -218,19 +207,22 @@ namespace PrettyThings.data.model
                 var sellListing = sellAtStation.GetSellable(buyListing.CommodityId);
                 if (sellListing == null || sellListing.SellPrice <= buyListing.BuyPrice) continue;
 
+                var units = (int) credits / buyListing.BuyPrice;
+                var perUnitProfit = sellListing.SellPrice - buyListing.BuyPrice;
+                var hopProfit = (units > cargoSize ? cargoSize : units) * perUnitProfit;
+
                 if (profit == null)
                 {
-                    profit = new StationToStationProfit(sellAtStation, sellListing, this, buyListing);
+                    profit = new StationToStationProfit(sellAtStation, sellListing, this, buyListing, perUnitProfit, units, hopProfit);
                     continue;
                 }
 
-                var p = sellListing.SellPrice - buyListing.BuyPrice;
-                if (p < profit.ProfitAmount() || 
-                    (  p == profit.ProfitAmount() && 
-                       sellListing.SellPrice < profit.SellAtListing.SellPrice))
+
+                if(hopProfit < profit.ProfitAmount() || 
+                    (hopProfit == profit.ProfitAmount() && perUnitProfit < profit.PerUnitProfit))
                     continue;
 
-                profit = new StationToStationProfit(sellAtStation, sellListing, this, buyListing);
+                profit = new StationToStationProfit(sellAtStation, sellListing, this, buyListing, perUnitProfit, units, hopProfit);
             }
 
             return profit;

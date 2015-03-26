@@ -93,6 +93,17 @@ namespace PrettyThings.data.model
             }
         }
 
+        private Station _station;
+
+        [JsonIgnore]
+        public Station Station
+        {
+            get
+            {
+                return _station ??
+                       (_station = SystemDatabase.Connection.Table<Station>().FirstOrDefault(x => x.Id == StationId));
+            }
+        }
 
         public override string ToString()
         {

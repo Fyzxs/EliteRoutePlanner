@@ -10,18 +10,26 @@ namespace PrettyThings.data.planning
         public StationListing SellAtListing { get; private set; }
         public Station BuyFromStation { get; private set; }
         public StationListing BuyFromListing { get; private set; }
+        public decimal PerUnitProfit { get; private set; }
+        public decimal NumberOfUnits { get; private set; }
+        public decimal ExpectedProfit { get; private set; }
 
         public StationToStationProfit(Station sellAtStation, StationListing sellAtListing,
-            Station buyFromStation, StationListing buyFromListing)
+            Station buyFromStation, StationListing buyFromListing, decimal perUnitProfit, decimal numberOfUnits, decimal expectedProfit)
         {
             SellAtStation = sellAtStation;
             SellAtListing = sellAtListing;
             BuyFromStation = buyFromStation;
             BuyFromListing = buyFromListing;
+            PerUnitProfit = perUnitProfit;
+            NumberOfUnits = numberOfUnits;
+            ExpectedProfit = expectedProfit;
         }
 
-        public int ProfitAmount()
+        public decimal ProfitAmount()
         {
+            return ExpectedProfit;
+
             try
             {
                 if (SellAtListing != null && SellAtListing.SellPrice > 0 &&
@@ -41,9 +49,9 @@ namespace PrettyThings.data.planning
 
         public override string ToString()
         {
-            return String.Format("Profit {0} :: {1} from {2}/{3} sell at {4}/{5}", 
+            return String.Format("Avg Profit {0} :: {1} from {2}/{3} for {4}/{5} sell at {6}/{7}", 
                 ProfitAmount(), BuyFromListing.Commodity.Name, 
-                BuyFromStation.ParentSystem.Name, BuyFromStation.Name, 
+                BuyFromStation.ParentSystem.Name, BuyFromStation.Name, PerUnitProfit, BuyFromListing.BuyPrice,
                 SellAtStation.ParentSystem.Name, SellAtStation.Name);
         }
 

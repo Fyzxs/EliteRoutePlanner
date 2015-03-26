@@ -24,7 +24,6 @@ namespace PrettyThings.Menu
         {
             var form = Form.ActiveForm as Form1;
             if (form == null) return;
-
             form.textBox1.Text += "\r\nSystem Count: " + SystemDatabase.Connection.Table<StarSystem>().Count();
         }
 

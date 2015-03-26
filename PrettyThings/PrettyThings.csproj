@@ -81,6 +81,7 @@
     <Compile Include="data\model\CommodityCategory.cs" />
     <Compile Include="data\model\Station.cs" />
     <Compile Include="data\model\StarSystem.cs" />
+    <Compile Include="Menu\CommodityLocation.cs" />
     <Compile Include="Menu\DebugItems.cs" />
     <Compile Include="Menu\LoopGeneration.cs" />
     <Compile Include="Menu\EddbImport.cs" />

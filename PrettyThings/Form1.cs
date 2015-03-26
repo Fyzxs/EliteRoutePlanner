@@ -54,6 +54,19 @@ namespace PrettyThings
             btnGenPath.Enabled = !LoopGeneration.Instance.btnGenPath_Click(sender, e);
         }
 
+        private void btnFindCommodity_Click(object sender, EventArgs e)
+        {
+            lock (this)
+            {
+                if (!cmdCmdLocLocate.Enabled)
+                {
+                    return;
+                }
+                cmdCmdLocLocate.Enabled = false;
+            }
+            cmdCmdLocLocate.Enabled = !CommodityLocation.Instance.btnFindCommodity_Click(sender, e);
+        }
+
 
         private void mniMainImportEddb_Click(object sender, EventArgs e)
         {
@@ -75,18 +88,6 @@ namespace PrettyThings
             EddbImport.Instance.mniMainImportEddbStations_Click(sender, e);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var x = SystemDatabase.Connection.DeferredQuery<Commodity>(textBox2.Text);
-            
-
-            foreach (var z in x)
-            {
-                textBox1.Text += "\r\n" + z;
-            }
-
-
-        }
 
         private void mniMainImportEddbInterwebs_Click(object sender, EventArgs e)
         {
@@ -101,7 +102,57 @@ namespace PrettyThings
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SystemDatabase.Close();
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
+        }
+
+        private void cboSystemSelector_TextChanged(object sender, EventArgs e)
+        {
+            var cbo = sender as ComboBox;
+            if (cbo == null)
+            {
+                return;
+            }
+            var systems = SystemDatabase.Connection.Table<StarSystem>().Where(x => x.Name.StartsWith(cbo.Text));
+            cbo.Items.Clear();
+            cbo.Select(cbo.Text.Length, 0);
+            if (systems.Count() > 50)
+            {
+                cbo.Items.Add("Too Many Results");
+                return;
+            }
+            foreach (var system in systems)
+            {
+                cbo.Items.Add(system.Name);
+            }
+            cbo.DroppedDown = true;
+        }
+
+        private void cboCmdLocCommodity_TextChanged(object sender, EventArgs e)
+        {
+            var cbo = sender as ComboBox;
+            if (cbo == null)
+            {
+                return;
+            }
+            var systems = SystemDatabase.Connection.Table<Commodity>().Where(x => x.Name.StartsWith(cbo.Text));
+            cbo.Items.Clear();
+            cbo.Select(cbo.Text.Length, 0);
+            if (systems.Count() > 50)
+            {
+                cbo.Items.Add("Too Many Results");
+                return;
+            }
+            foreach (var system in systems)
+            {
+                cbo.Items.Add(system.Name);
+            }
+            cbo.DroppedDown = true;
+
+        }
+
+        private void cmdCmdLocLocate_Click(object sender, EventArgs e)
+        {
+            CommodityLocation.Instance.btnFindCommodity_Click(sender, e);
         }
 
     }

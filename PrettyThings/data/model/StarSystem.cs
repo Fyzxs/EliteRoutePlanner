@@ -61,7 +61,7 @@ namespace PrettyThings.data.model
                        (_stations = SystemDatabase.Connection.Table<Station>().Where(s => s.ParentSystemId == Id).ToArray());
             }
         }
-        public List<StationToStationProfit> GetProfitableStationsWithin(double distance)
+        public List<StationToStationProfit> GetProfitableStationsWithin(double distance, decimal cargoSize, decimal credits)
         {
             var profits = new List<StationToStationProfit>();
             var closeSystems = GetStarSystemsCloserThan(distance);
@@ -81,7 +81,7 @@ namespace PrettyThings.data.model
                         continue;
                     }
 
-                    var profitable = buyingFromStation.GetMostProfitableToSellAt(sellingAtStation);
+                    var profitable = buyingFromStation.GetMostProfitableToSellAt(sellingAtStation, cargoSize, credits);
                     if (profitable == null)
                     {
                         continue;
